@@ -16,7 +16,7 @@ import subprocess
 class WhatsappAutomation:
 
 
-    def __init__(self,filePath="Files/user_names.csv",messageFile="Files/message.txt",initialSleep=6,BaseDir = ""):
+    def __init__(self,filePath="Files/user_names.csv",messageFile="Files/message.txt",initialSleep=6):
         #validators
 
         if self.checkInternetConnection()==False:
@@ -28,7 +28,8 @@ class WhatsappAutomation:
         self.fileExist(messageFile)
 
         #------------------------------------------
-        self.attachmentBaseDir= BaseDir+"\\attachment\\"
+        self.baseDir = os.getcwd()
+        self.attachmentBaseDir= self.baseDir+"\\attachment\\"
         # self.attachmentBaseDir = os.curdir+"/"
         self.filePath = filePath
         self.Controller = None
@@ -42,6 +43,7 @@ class WhatsappAutomation:
             return files[0]
         except :
             return ""
+            
     def checkInternetConnection(self):
         # check internet connection if yes return True else False
         
@@ -220,7 +222,7 @@ class WhatsappAutomation:
 # driver code
 
 if __name__ =='__main__':
-    obj = WhatsappAutomation(BaseDir="D:\\WORK\\Python\\Whatsapp_Automation")
+    obj = WhatsappAutomation()
     # print(obj.readMessage())
 
     obj.open("https://web.whatsapp.com/")
