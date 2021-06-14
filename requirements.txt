@@ -23,3 +23,5 @@ soupsieve==2.2.1
 urllib3==1.26.4
 wikipedia==1.4.0
 get-gecko-driver==0.1.17
+jproperties==2.1.0
+zipfile36==0.1.3

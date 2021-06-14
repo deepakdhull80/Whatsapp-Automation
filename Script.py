@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
-from get_gecko_driver import GetGeckoDriver
+# from get_gecko_driver import GetGeckoDriver
 
 import time
 import os
@@ -11,6 +11,7 @@ import pandas as pd
 import requests
 import subprocess
 
+from driversEx.ChromeComplatibilty import ChromeComplatibility
 
 
 class WhatsappAutomation:
@@ -24,6 +25,8 @@ class WhatsappAutomation:
             time.sleep(3)
             exit()
         
+        
+
         self.fileExist(filePath)
         self.fileExist(messageFile)
 
@@ -36,6 +39,7 @@ class WhatsappAutomation:
         self.initialSleep = initialSleep
         self.messageFile = messageFile
         self.attachmentFileName = self.getAttachmentFileName()
+
 
     def getAttachmentFileName(self):
         try:
@@ -100,7 +104,7 @@ class WhatsappAutomation:
             # self.Controller = webdriver.Firefox(executable_path=r'drivers/geckodriver')
 
             #chrome connectivity.
-            self.Controller = webdriver.Chrome("drivers/chromedriver")
+            self.Controller = webdriver.Chrome("driversEx/chromedriver")
 
             self.Controller.maximize_window()
         except Exception as e:
@@ -222,6 +226,10 @@ class WhatsappAutomation:
 # driver code
 
 if __name__ =='__main__':
+
+    #check compatible
+    ChromeComplatibility()
+
     obj = WhatsappAutomation()
     # print(obj.readMessage())
 
