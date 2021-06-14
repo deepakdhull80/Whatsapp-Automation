@@ -36,5 +36,6 @@ Contributors names and contact info
 ## Version History
 
   1.0 implementation issue with doc files.
+  
   1.1 compatibility issue with chromedriver solved.
 
